@@ -1,0 +1,9 @@
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\bin\Debug\TEST WindowsFormsApp1.exe.config
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\bin\Debug\TEST WindowsFormsApp1.exe
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\bin\Debug\TEST WindowsFormsApp1.pdb
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\obj\Debug\TEST WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\obj\Debug\TEST_WindowsFormsApp1.Form1.resources
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\obj\Debug\TEST_WindowsFormsApp1.Properties.Resources.resources
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\obj\Debug\TEST WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\obj\Debug\TEST WindowsFormsApp1.exe
+C:\Users\cingo\source\repos\TEST WindowsFormsApp1\TEST WindowsFormsApp1\obj\Debug\TEST WindowsFormsApp1.pdb
