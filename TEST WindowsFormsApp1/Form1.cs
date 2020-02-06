@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using BackendCode;
 
 namespace TEST_WindowsFormsApp1
 {
@@ -15,7 +16,7 @@ namespace TEST_WindowsFormsApp1
     public partial class Form1 : Form
     {
 
-        BackEnd p = new BackEnd();
+        BackEnd be = new BackEnd();
 
 
         public int childsum;
@@ -25,7 +26,7 @@ namespace TEST_WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-
+            be.MainCode();
              
         }
 
@@ -80,7 +81,7 @@ namespace TEST_WindowsFormsApp1
         private void button5_Click(object sender, EventArgs e)
         {
 
-            p.GetInts(childsum,adultsum,seniorsum);
+            be.GetInts(childsum,adultsum,seniorsum);
             if (adultsum + childsum + seniorsum == 0)
             {
                 MessageBox.Show("Please add at least one ticket!");
@@ -90,7 +91,7 @@ namespace TEST_WindowsFormsApp1
                 childsum = 0;
                 adultsum = 0;
                 seniorsum = 0;
-                p.Checkout();
+                be.Checkout();
                 MessageBox.Show("Purchased!");
             }
         }
@@ -102,7 +103,7 @@ namespace TEST_WindowsFormsApp1
             try
             {
                 int checkInput = Int32.Parse(refundInput);
-                p.Refund(checkInput);
+                be.Refund(checkInput);
                 //string[] lines = System.IO.File.ReadAllLines(path);
                 //StreamWriter sw = new StreamWriter(path);
                 //string overwrite = "";
