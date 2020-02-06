@@ -98,12 +98,16 @@ namespace TEST_WindowsFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
+            string path = @"C:\Users\cingo\source\repos\LawliBread\TicketSales\SalesList.txt";
             string refundInput = RefundBox.Text;
             try
             {
                 int checkInput = Int32.Parse(refundInput);
                 be.Refund(checkInput);
-                MessageBox.Show("Refunded ID NR: " + checkInput);
+                //string[] lines = System.IO.File.ReadAllLines(path);
+                //StreamWriter sw = new StreamWriter(path);
+                //string overwrite = "";
+                MessageBox.Show("Refunded ID nr:" + checkInput);
             }
             catch
             {

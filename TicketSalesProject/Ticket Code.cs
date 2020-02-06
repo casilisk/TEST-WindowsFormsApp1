@@ -9,8 +9,9 @@ namespace BackendCode
     public class BackEnd
     {
         int[] groupArr = new int[3];
-        Dictionary<int, int[]> dictionaryList = new Dictionary<int, int[]>(); //kan endast tillägga saker i metoder
+        Dictionary<int, int[]> dictionaryList = new Dictionary<int, int[]>();
         int id;
+
 
         string path = @"..\..\..\SalesList.txt";
 
@@ -23,17 +24,17 @@ namespace BackendCode
 
         void Run()
         {
-            TxtToDictionary();
+            TextToDictionary();
         }
 
-        public void TxtToDictionary()
+        public void TextToDictionary()
         {
-            StreamReader sr = new StreamReader(path); //läser genom en txt
-            string text; //text som attachas till array:n för varje rad
+            StreamReader sr = new StreamReader(path);
+            string text;
             while ((text = sr.ReadLine()) != null) //
             {
                 string[] parts = text.Split('$');
-                int id = int.Parse(parts[0]);
+                id = int.Parse(parts[0]);
                 int valueChild = int.Parse(parts[3]);
                 int valueAdult = int.Parse(parts[4]);
                 int valueSenior = int.Parse(parts[5]);
@@ -41,13 +42,14 @@ namespace BackendCode
                 groupArr[1] = valueAdult;
                 groupArr[2] = valueSenior;
                 dictionaryList.Add(id, groupArr);
-                break;
             }
             sr.Close();
         }
 
         public void Refund(int id)
         {
+            dictionaryList.Clear();
+            Run();
             if (dictionaryList.ContainsKey(id))
             {
                 dictionaryList.Remove(id);
@@ -61,29 +63,27 @@ namespace BackendCode
         }
         public void Checkout()
         {
+            dictionaryList.Clear();
+            Run();
             id = 0;
-            StreamReader sr = new StreamReader(path);
-            string lines;
-            while ((lines =sr.ReadLine()) != null)
+            bool condition = true;
+            while(condition)
             {
-                string[] parts = lines.Split('$');
-                string idCheck = parts[0];
-                foreach ()
-                if (dictionaryList.Contains(idCheck))
+                if (dictionaryList.ContainsKey(id))
                 {
-                    idCheck++;
+                    id++;
                 }
                 else
                 {
-                    sr.Close();
-                    Output = Math(groupArr[0], groupArr[1], groupArr[2]);
-                    dictionaryList.Add(id, groupArr);
-                    StreamWriter sw = new StreamWriter(path, true);
-                    sw.WriteLine(id + Output);
-                    sw.Close();
-                    break;
+                    condition = false;
                 }
             }
+            StreamWriter sw = new StreamWriter(path, true);
+            Output = Math(groupArr[0], groupArr[1], groupArr[2]);
+            dictionaryList.Add(id, groupArr);
+            sw.WriteLine(id + Output);
+            MessageBox.Show("Your ticket ID is: " + id);
+            sw.Close();
         }
 
         public string Math(int child, int adult, int senior)
@@ -113,74 +113,4 @@ namespace BackendCode
             groupArr[2] = seniorP; //senior price
         }
     }
-
-
-    class ReceiptInfo
-    {
-
-    }
-
-    /*
-    class Ticket
-    {
-        private int price;
-        private string group;
-
-        public int GetPrice()
-        {
-            return price;
-        }
-
-        public string GetGroup()
-        {
-            return group;
-        }
-    }
-    */
-
-    //class Ticket
-    //{
-    //    private int price;
-    //    private string type;
-
-
-    //}
-
-    //public abstract class AdultTicket
-    //{
-    //    public abstract void Ticket();
-    //} //abstract söger bara att den ärver vad som står, inte att blir använt som en isntans
-    // Kolla upp
-    //abstract
-    //override
-    //float
-    //dictionary 
-    //listor typ
-    //
-
-    //string path = @"..\..\..\ExText.txt";
-    //streamwrite/streamread
-
-    /*
-    public int Adult()
-    {
-    int adult = 0;
-    int idInteger = 0;
-    for (int i = 0; i < dictionaryList.Count; i++)
-    {
-        if (dictionaryList.ContainsKey(adult))
-        {
-            adult++;
-        }
-        break;
-    }
-    dictionaryList.Add(adult, 100);
-    adult++;
-    StreamWriter sw = new StreamWriter(path);
-    sw.WriteLine(adult + " " + "adult" + " " + 100);
-    sw.Close();
-    return adult;
-    }
-    */
-
 }
